@@ -1,0 +1,14 @@
+server:
+  port: 8020
+
+security:
+  oauth2:
+    client:
+      clientId: client
+      clientSecret: secret
+    resource:
+      token-info-uri: http://localhost:8010/oauth/check_token
+      jwk:
+        key-set-uri: http://localhost:8010/endpoint/jwks.json
+
+logging.level.org.springframework.security: DEBUG

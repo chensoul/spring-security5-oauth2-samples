@@ -1,0 +1,20 @@
+server:
+  port: 8030
+
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: secret
+      accessTokenUri: http://localhost:8010/oauth/access_token
+      userAuthorizationUri: http://localhost:8010/oauth/authorize
+      pre-established-redirect-uri: http://localhost:8030/lsso-client
+      use-current-uri: false
+    resource:
+      token-info-uri: http://localhost:8030/oauth/check_token
+      # 使用 userinfo 或者 JWK 端点获取用户信息
+      #      userInfoUri: http://localhost:8010/users/userinfo
+      jwk:
+        key-set-uri: http://localhost:8010/endpoint/jwks.json
+
+logging.level.org.springframework.security: DEBUG

@@ -1,0 +1,37 @@
+server:
+  port: 8083
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+
+jdbc:
+  url: jdbc:h2:~/data/oauth2;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  driverClassName: org.h2.Driver
+  username: sa
+  password:
+
+security:
+  oauth2:
+    client-type: jdbc
+    token-type: jwt
+    client:
+      client-id: client
+      client-secret: secret
+    resource:
+      jwt:
+        key-value: 123456
+    #    authorization:
+    #      jwt:
+    #        key-store: classpath:keystore.p12
+    #        key-store-password: password
+    #        key-alias: authorizationserver
+    #        key-password: password
+
+logging:
+  level:
+    org.springframework.security.core: trace

@@ -1,0 +1,6 @@
+server.port: 8020
+
+security.oauth2.resource.id: service
+security.oauth2.resource.userInfoUri: http://localhost:8083/users/info
+
+# logging.level.org.springframework.security: DEBUG

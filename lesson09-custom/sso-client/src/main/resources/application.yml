@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+#防止Cookie冲突，冲突会导致登录验证不通过
+server.servlet.session.cookie.name: UISESSIONMEMBER
+
+security:
+  oauth2:
+    client:
+      clientId: client
+      clientSecret: secret
+      accessTokenUri: http://localhost:8083/oauth/token
+      userAuthorizationUri: http://localhost:8083/oauth/authorize
+      clientAuthenticationScheme: form
+      scope: server
+    resource:
+      jwt:
+        key-uri: http://localhost:8083/oauth/token_key
+      userInfoUri: http://localhost:8083/users/userinfo
+      preferTokenInfo: true
+
